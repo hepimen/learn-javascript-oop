@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object - Constructor Function</title>
+</head>
+<body>
+    <script>
+        // Tipe Data Object Biasa
+        const eko = {
+            firstName : 'Eko'
+        };
+
+        const budi = {
+            namaDepan : 'Budi'
+        }
+
+
+        // Constructor Function
+        // ciri2 huruf Besar di awal ( Best Practice ), yg biasa digunakan
+        function Person () {
+            this.firstName = "";
+            this.latName = "";
+            this.sayHello = function (name) {
+                console.info(`Hello ${name}, my name is ${this.firstName}`);
+            }
+        }
+
+        const eko = new Person();
+        eko.firstName = "Eko";
+        eko.lastName = "Jambrong";
+        eko.sayHello("Joko");
+        
+        const budi = new Person();
+        budi.firstName = "Budi";
+        budi.lastName = "Gondrong";
+        budi.sayHello("Bayu");
+
+        console.log(eko);
+        console.log(budi);
+
+
+        // Constructor Function
+        // Bisa dipermudah dengan taruh di parameter 
+
+        function Person (firstName, lastName) {
+            this.firstName = firstName;
+            this.latName = lastName;
+            this.sayHello = function (name) {
+                console.info(`Hello ${name}, my name is ${this.firstName}`);
+            }
+        }
+
+        const eko = new Person("Eko","Jambrong");
+        eko.sayHello("Joko");
+        
+        const budi = new Person("Budi","Gondrong");
+        budi.sayHello("Rinto");
+
+        console.log(eko);
+        console.log(budi);
+
+    </script>
+</body>
+</html>
