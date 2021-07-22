@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Instance of</title>
+</head>
+<body>
+    <script>
+        class Employee {
+
+        }
+        
+        class Manager {
+            
+        }
+
+        const budi = new Employee();
+        const eko = new Manager();
+
+        console.info(typeof budi); // akan menghasilkan object
+
+        
+        // untuk mengecek nya menggunakan "instanceof", jika true adalah instance object , false bukan instance object
+        console.info(budi instanceof Employee); // true
+        console.info(budi instanceof Manager); // false, budi bukan dibuat di class Manager tp Employee
+
+        console.info(eko instanceof Employee); // false 
+        console.info(eko instanceof Manager); // true
+
+
+        class Employee2 {
+
+        }
+
+        class Manager2 extends Employee2 {
+            
+        }
+
+        const budi2 = new Employee2();
+        const eko2 = new Manager2();
+
+        console.info(budi2 instanceof Employee2); // true
+        console.info(budi2 instanceof Manager2); // false, budi bukan dibuat di class Manager tp Employee, dan walaupun ada extends, yg di wariskan adalah dari Employee ke Manager bukan sebaliknya
+
+        console.info(eko2 instanceof Employee2); // true, krn sudah di extends(wariskan dari Employe2 ke Manager2)
+        console.info(eko2 instanceof Manager2); // true
+
+
+         
+    </script>
+</body>
+</html>

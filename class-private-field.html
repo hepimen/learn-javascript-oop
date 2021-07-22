@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class : Private Field</title>
+</head>
+<body>
+    <script>
+
+        // class yang belum private
+        // class CounterBeforePrivate {
+
+        //     counter = 0;
+
+        //     increment(){
+        //         this.counter++;
+        //     }
+
+        //     decrement(){
+        //         this.counter--;
+        //     }
+
+        //     get(){
+        //         return this.counter;
+        //     }
+
+        // }
+
+        // const counter = new CounterBeforePrivate();
+        // counter.counter = 100;
+        // counter.increment();
+        // counter.increment();
+        // counter.increment();
+        // counter.increment();
+        // counter.increment();
+        // console.info(counter.get()); // result = 100 , krn masih bisa diubah
+        
+        //gunakan # untuk private 
+        class CounterPrivate {
+
+            #counter = 0;
+
+            increment(){
+                this.#counter++;
+            }
+
+            decrement(){
+                this.#counter--;
+            }
+
+            get(){
+                return this.#counter;
+            }
+
+        }
+
+        const counterPrivate = new CounterPrivate();
+
+        counterPrivate.increment();
+        counterPrivate.increment();
+        counterPrivate.increment();
+        counterPrivate.increment();
+        counterPrivate.increment();
+        
+        console.info(counterPrivate.get());
+        counterPrivate.#counter = 100; //Uncaught SyntaxError: Private field '#counter' must be declared in an enclosing class, krn bersikap private
+        console.info(counterPrivate);
+    </script>
+</body>
+</html>
