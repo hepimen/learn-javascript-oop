@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Field</title>
+</head>
+<body>
+    <script>
+        
+        class Configuration {
+            name = "Belajar Javascript"
+            version = 1.0;
+            author = "Eko Jambrong"
+        }
+
+        const config = new Configuration();
+        console.info(config);
+        console.info(config.name);
+
+       
+        // static akan membuat menjadi seperti variable global
+        // gak perlu bikin object ya lagi untuk mengakses static field nya
+        class Configuration2 {
+            static name2 = "Belajar Javascript OOP"
+            static version2 = 1.0;
+            static author2 = "Eko Jambrong"
+        }
+        
+
+        console.info(Configuration2.name2);
+        console.info(Configuration2.version2);
+        console.info(Configuration2.author2);
+
+        Configuration2.author2 = "Budi Gondrong";
+
+        console.info(Configuration2.author2);
+    </script>
+</body>
+</html>
