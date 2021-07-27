@@ -9,18 +9,30 @@
 <body>
     <script>
 
-        class ValidationError extends Error{ // wariskan dari class Error
+        class ValidationError extends Error{ // warisaan dari class Error
             constructor(message, fieldNumber) {
                 super(message);
                 this.fieldNumber = fieldNumber;
             }
         }
 
+        class ValidationError2 extends Error{ // warisaan dari class Error
+            constructor(message, fieldText) {
+                super(message);
+                this.fieldText = fieldText;
+            }
+        }
+
+
         class MathUtil {
             static sum (...numbers){
 
                 if(numbers.length === 0){
                     throw new ValidationError("Total Parameter harus lebih dari 0","numbers");
+                }
+
+                if(numbers = 'halo') {
+                    throw new ValidationError2("Total Parameter harus number bukan string","1,2,3,4,5");
                 }
                 
                 let total = 0;
@@ -34,11 +46,13 @@
         }
 
         try {
-            console.info(MathUtil.sum()); 
+            console.info(MathUtil.sum('halo')); 
             console.info("--batas--");
         } catch (error) {
             if (error instanceof ValidationError){
-                console.info(`Terjadi error di field ${error.field} dengan error -> ${error.message}`);
+                console.info(`Terjadi error di field ${error.fieldNumber} dengan error -> ${error.message}`);
+            } else if (error instanceof ValidationError2){
+                console.info(`Terjadi error karena ${error.message} , yang harus kamu input adalah ${error.fieldText}`)
             } else {
                 console.info(`Terjadi error : ${error.message}`);
             }
